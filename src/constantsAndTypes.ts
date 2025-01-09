@@ -63,7 +63,7 @@ export const initialState: State = {
   } as const;
 
 /** Types */
-export type Key = "KeyW" | "KeyA" | "KeyD" | "KeyR" | "KeyT"; // Key interactions
+export type Key = "ArrowDown" | "ArrowLeft" | "ArrowRight" | "KeyR" | "KeyT"; // Key interactions
 export type Event = "keydown" | "keyup" | "keypress";
 export type Colour = "red"| "blue"| "green"| "yellow"| "purple"| "orange";
 export type BlockType = "O"| "I"| "T"| "J"| "L"| "S"| "Z"; //7 block types

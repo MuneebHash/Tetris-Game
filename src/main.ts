@@ -35,7 +35,7 @@ const tick = (s: State, action: Action): State =>
  */
 export function main() {
   // Observing keyboard events (keypress)
-  const key$ = fromEvent<KeyboardEvent>(document, "keypress");
+  const key$ = fromEvent<KeyboardEvent>(document, "keydown");
   /**
    * Create an observable for a specific key press event.
    *
@@ -44,14 +44,14 @@ export function main() {
    */
   const fromKey = <T>(keyCode: Key, result: () => T) =>
     key$.pipe(
-      filter(({ code }) => code === keyCode),
+      filter(({code }) => code === keyCode),
       map(result)
     )
 
   // Observables for specific key presses
-  const left$ = fromKey("KeyA", () => new MoveBlock(-1, 0));
-  const right$ = fromKey("KeyD", () => new MoveBlock(1, 0));
-  const down$ = fromKey("KeyW", () => new MoveBlock(0,-1, 100));
+  const left$ = fromKey("ArrowLeft", () => new MoveBlock(-1, 0));
+  const right$ = fromKey("ArrowRight", () => new MoveBlock(1, 0));
+  const down$ = fromKey("ArrowDown", () => new MoveBlock(0,-1, 100));
   const rotate$ = fromKey("KeyR", () => new Rotate());
   const restart$ = fromKey("KeyT", () => new Restart());
   
